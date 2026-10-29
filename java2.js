@@ -1,6 +1,6 @@
 // Variables globales
 let isPlaying = false;
-const totalSlides = 7;
+const totalSlides = 9;
 
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
@@ -346,13 +346,22 @@ function initializeCarousel() {
         goToCarouselSlide();
     });
 
-    // Auto-play del carrusel: siempre avanza (derecha a izquierda)
-    setInterval(() => {
-        if (carouselTransitioning) return;
-        carouselTransitioning = true;
-        carouselIndex++;
-        goToCarouselSlide();
-    }, 2500);
+    // Auto-play del carrusel: siempre avanza (derecha a izquierda).
+    // Cada foto dura 2.5 s; la última foto se queda 1 s más (3.5 s).
+    const CAROUSEL_MS = 2500;
+    const CAROUSEL_EXTRA_ULTIMA_MS = 1000;
+    function programarAutoplay() {
+        const enUltima = carouselIndex === totalSlides || carouselIndex === 0;
+        setTimeout(() => {
+            if (!carouselTransitioning) {
+                carouselTransitioning = true;
+                carouselIndex++;
+                goToCarouselSlide();
+            }
+            programarAutoplay();
+        }, CAROUSEL_MS + (enUltima ? CAROUSEL_EXTRA_ULTIMA_MS : 0));
+    }
+    programarAutoplay();
 }
 
 function goToCarouselSlide() {
