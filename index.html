@@ -298,6 +298,8 @@
                     <div class="gift-icon animated-gift">
                         <img class="icono-invitacion icono-regalo" src="icono-regalo.png" alt="" loading="lazy">
                     </div>
+                    <p class="section-subtitle gift-texto">Tu presencia es lo más importante para mí. Si además deseas hacerme un obsequio, tendremos una <strong>lluvia de sobres</strong>: el día de la fiesta habrá un lugar especial donde podrás dejar tu sobre con un detalle en efectivo.</p>
+                    <button class="btn-wedding" onclick="showSobres()">Ver lluvia de sobres</button>
                 </div>
 
                 <div class="deco-divider deco-divider--bottom"></div>
@@ -306,7 +308,7 @@
             <section class="rsvp-section section-shadow-seam">
                 <div class="rsvp-container">
                     <h2 class="section-title">Confirma tu asistencia</h2>
-                    <p class="section-subtitle">Por favor confirma tu asistencia antes del 15 de septiembre del 2026</p>
+                    <p class="section-subtitle">Por favor confirma tu asistencia antes del 31 de diciembre del 2026</p>
                     <div class="whatsapp-icon animated-whatsapp">
                         <img class="icono-invitacion icono-formulario" src="icono-whatsapp.png" alt="" loading="lazy">
                     </div>
@@ -321,6 +323,12 @@
     <!-- Toast notification -->
     <div id="toast" class="toast">
         <div id="toastContent"></div>
+    </div>
+
+    <!-- Lluvia de sobres (imagen flotante) -->
+    <div id="sobresCard" class="vestimenta-flotante" role="dialog" aria-label="Lluvia de sobres" aria-hidden="true">
+        <button type="button" class="vestimenta-cerrar" onclick="closeSobres()" aria-label="Cerrar">×</button>
+        <img src="lluvia-sobres.jpg" alt="Lluvia de sobres: si deseas agradar a Amanda con un obsequio especial, tendremos habilitada una lluvia de sobres para quienes deseen regalarle un presente en efectivo." loading="lazy">
     </div>
 
     <!-- Código de vestimenta (imagen flotante) -->

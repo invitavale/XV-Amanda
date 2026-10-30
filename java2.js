@@ -445,6 +445,28 @@ function cerrarVestimentaFuera(e) {
     if (card && !card.contains(e.target)) closeDressCode();
 }
 
+function showSobres() {
+    closeDressCode();
+    const card = document.getElementById('sobresCard');
+    if (!card) return;
+    card.classList.add('show');
+    card.setAttribute('aria-hidden', 'false');
+    setTimeout(() => document.addEventListener('click', cerrarSobresFuera, true), 50);
+}
+
+function closeSobres() {
+    const card = document.getElementById('sobresCard');
+    if (!card) return;
+    card.classList.remove('show');
+    card.setAttribute('aria-hidden', 'true');
+    document.removeEventListener('click', cerrarSobresFuera, true);
+}
+
+function cerrarSobresFuera(e) {
+    const card = document.getElementById('sobresCard');
+    if (card && !card.contains(e.target)) closeSobres();
+}
+
 function sharePhotos() {
     window.open('https://photos.app.goo.gl/5gzRABHjuNhGsoVP8', '_blank');
 }
