@@ -468,7 +468,7 @@ function cerrarSobresFuera(e) {
 }
 
 function sharePhotos() {
-    window.open('https://photos.app.goo.gl/5gzRABHjuNhGsoVP8', '_blank');
+    window.open('https://photos.app.goo.gl/5JNn4J7qCzg5SftS8', '_blank');
 }
 
 // Confirmación por WhatsApp
